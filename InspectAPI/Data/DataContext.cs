@@ -7,6 +7,6 @@ namespace InspectAPI.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Inspection> Inspections { get; set; } 
         public DbSet<InspectionType> InspectionTypes { get; set; }
-        public DbSet<InspectionStatus> InspectionStatuses { get; set; }
+        public DbSet<Status> Statuses { get; set; }
     }
 }
