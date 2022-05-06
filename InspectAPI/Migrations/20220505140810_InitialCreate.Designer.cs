@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InspectAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220427171732_InitialCreate")]
+    [Migration("20220505140810_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace InspectAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Coments")
+                    b.Property<string>("Comments")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
@@ -84,7 +84,7 @@ namespace InspectAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("InspectionStatuses");
+                    b.ToTable("Statuses");
                 });
 
             modelBuilder.Entity("InspectAPI.Inspection", b =>

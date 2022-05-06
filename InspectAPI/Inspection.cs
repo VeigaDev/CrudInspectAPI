@@ -8,7 +8,7 @@ namespace InspectAPI
         [StringLength(20)]
         public string Status { get; set; } = String.Empty;
         [StringLength(200)]
-        public string Coments { get; set; } = String.Empty;
+        public string Comments { get; set; } = String.Empty;
         public int InspectionTypeId { get; set; }
         public InspectionType? InspectionType { get; set; }
     }

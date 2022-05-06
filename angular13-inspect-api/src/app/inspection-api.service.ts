@@ -1,64 +1,66 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InspectionApiService {
-  readonly inspectionAPIUrl = "httpm://localhost:7240/api"
+  readonly inspectionAPIUrl = "https://localhost:7217/api"
 
   constructor(private http:HttpClient) { }
 
   //INSPECTIONS
 
   getInspectionList():Observable<any[]>{
-    return this.http.get<any>(this.inspectionsAPIUrl + '/inspections');
+    return this.http.get<any>(this.inspectionAPIUrl + '/Inspections');
   }
 
   addInspection(data:any){
-    return this.http.post(this.inspectionsAPIUrl + '/inspections', data);
+    return this.http.post(this.inspectionAPIUrl + '/Inspections', data);
   }
 
   updateInspection(id:number|string, data:any){
-    return this.http.put(this.inspectionAPIUrl + `/inspections/${id}`, data);
+    return this.http.put(this.inspectionAPIUrl + `/Inspections/${id}`, data);
   }
 
   deleteInspection(id:number|string){
-    return this.http.delete(this.inspectionAPIUrl + `/inspections/${id}`);
+    return this.http.delete(this.inspectionAPIUrl + `/Inspections/${id}`);
   }
 
   //INSPECTION TYPE
 
-  getInspectionTypeList():Observable<any[]>{
-    return this.http.get<any>(this.inspectionAPIUrl + '/inspectionstype');
+  getInspectionTypesList():Observable<any[]>{
+    return this.http.get<any>(this.inspectionAPIUrl + '/InspectionTypes');
   }
 
   addInspectionType(data:any){
-    return this.http.post(this.inspectionAPIUrl + '/inspectionstype', data);
+    return this.http.post(this.inspectionAPIUrl + '/InspectionTypes', data);
   }
 
   updateInspectionType(id:number|string, data:any){
-    return this.http.put(this.inspectionAPIUrl + `/inspectionstype/${id}`, data);
+    return this.http.put(this.inspectionAPIUrl + `/InspectionTypes/${id}`, data);
   }
 
   deleteInspectionType(id:number|string){
-    return this.http.delete(this.inspectionAPIUrl + `/inspectionstype/${id}`);
+    return this.http.delete(this.inspectionAPIUrl + `/InspectionTypes/${id}`);
   }
 
-  //STATUS
+  //STATUSES
 
-  getStatusesList():Observable<any[]>{
-    return this.http.get<any>(this.inspectionAPIUrl + '/Statuses');
+  getStatusList():Observable<any[]>{
+    return this.http.get<any>(this.inspectionAPIUrl + '/Status');
   }
 
   addStatus(data:any){
-    return.this.post(this.inspectionAPIUrl +'/statuses', data);
+    return this.http.post(this.inspectionAPIUrl +'/Status', data);
   }
 
   updateStatus(id:number|string, data:any){
-    return this.http.put(this.inspectionsAPIUrl + `/statuses/${id}`, data);
+    return this.http.put(this.inspectionAPIUrl + `/Status/${id}`, data);
   }
 
   deleteStatus(id:number|string){
-    return this.http.delete(this.inspectionAPIUrl + `/statuses/${id}`);
+    return this.http.delete(this.inspectionAPIUrl + `/Status/${id}`);
   }
 }
